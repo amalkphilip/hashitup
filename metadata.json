@@ -1,0 +1,7 @@
+{
+  "name": "KitchenWise",
+  "description": "Reduce household food waste with AI. Track your kitchen inventory, monitor expiration dates, and get smart recipe suggestions to use up ingredients before they spoil. Eat well, save money, and help the planet.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
