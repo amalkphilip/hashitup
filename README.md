@@ -1,1 +1,91 @@
-<h1>hashitup</h1>
+<div align="center">
+
+  <h1>KitchenWise AI</h1>
+</div>
+
+> Reduce household food waste with AI. Track your kitchen inventory, monitor expiration dates, and get smart recipe suggestions to use up ingredients before they spoil. Eat well, save money, and help the planet.
+
+## ✨ Key Features
+
+-   **Smart Inventory Tracking**: Easily add, manage, and delete items from your kitchen inventory.
+-   **AI-Powered Recipe Suggestions**: Get creative recipe ideas based on the ingredients you currently have.
+-   **AI-Powered Receipt Scanning**: Automatically add items to your inventory by simply scanning a grocery receipt.
+-   **Expiry Date Notifications**: Receive alerts for items that are about to expire to help you prioritize their use.
+-   **Consumption Analytics**: Visualize your food consumption patterns with a simple chart.
+
+---
+
+## 🤖 AI Integration Documentation
+
+KitchenWise leverages the power of **Google's Gemini AI** to provide its intelligent features. The AI is responsible for two core functionalities: Recipe Suggestions and Receipt Scanning, transforming the app into a proactive kitchen assistant.
+
+### Core AI Technology
+
+-   **Model**: The application uses the Google Gemini API, accessed through the `@google/genai` npm package.
+
+### 1. AI-Powered Recipe Suggestions
+
+This feature helps users generate recipe ideas based on the ingredients they already have.
+
+-   **Workflow**:
+    1.  The user clicks the **"Suggest Recipes"** button.
+    2.  The application collects the current list of food items from the inventory.
+    3.  A call is made to the `getRecipeSuggestions` service function.
+    4.  The service constructs a detailed text prompt and sends it to the Gemini API. For example:
+        > "You are a helpful kitchen assistant. Based on the following ingredients: [Chicken Breasts, Broccoli, Bell Peppers, Yogurt], generate 3 diverse recipe ideas. Please format the output as a JSON array of objects, where each object has a 'title', a list of 'ingredients', and step-by-step 'instructions'."
+    5.  The Gemini model processes the prompt and returns a structured JSON response with recipe data.
+    6.  The application parses this response and displays the suggestions to the user.
+
+### 2. AI-Powered Receipt Scanning
+
+This feature streamlines adding new groceries by allowing users to scan a receipt.
+
+-   **Workflow**:
+    1.  The user uploads an image of a grocery receipt.
+    2.  The `handleReceiptScan` function calls the `parseReceiptFromImage` service.
+    3.  The service sends the image data along with a prompt to the **Gemini Pro** model. For example:
+        > "Analyze the attached image of a receipt. Extract all food items and their quantities. Exclude taxes, totals, and non-food items. Return the data as a JSON array of objects, where each with a 'name' and 'quantity' key."
+    4.  The Gemini model performs Optical Character Recognition (OCR) and contextual analysis to identify and extract the food items.
+    5.  The structured JSON data is returned to the app and presented in a confirmation modal for the user to review before adding it to their inventory.
+
+---
+
+## 🛠️ Tech Stack
+
+-   **Frontend**: React, TypeScript, Vite, Tailwind CSS
+-   **AI**: Google Gemini (`@google/genai`)
+
+---
+
+## 🚀 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+
+### Installation & Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd kitchenwise
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+   
+
+3.  **Set up environment variables:**
+    -   Create a file named `.env.local` in the root of the project.
+       
+
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    ### Future
+    
+   
+
+The application should now be running on `http://localhost:5173` (or another port if 5173 is busy).
