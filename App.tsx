@@ -111,7 +111,7 @@ const App: React.FC = () => {
             ...item,
             id: `${new Date().getTime()}-${item.name}`,
         }));
-        setInventory(prev => [...prev, ...newItems].sort((a, b) => new Date(a.expiryDate).getTime() - new Date(b.expiryDate).getTime()));
+
         setShowConfirmationModal(false);
         setScannedItems([]);
     };
