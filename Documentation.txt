@@ -1,7 +1,7 @@
-<div align="center">
+
 
   <h1>KitchenWise AI</h1>
-</div>
+
 
 > Reduce household food waste with AI. Track your kitchen inventory, monitor expiration dates, and get smart recipe suggestions to use up ingredients before they spoil. Eat well, save money, and help the planet.
 
