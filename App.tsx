@@ -111,7 +111,7 @@ const App: React.FC = () => {
             ...item,
             id: `${new Date().getTime()}-${item.name}`,
         }));
- setInventory(prev => [...prev, ...newItems].sort((a, b) => new Date(a.expiryDate).getTime() - new Date(b.expiryDate).getTime()));
+        setInventory(prev => [...prev, ...newItems].sort((a, b) => new Date(a.expiryDate).getTime() - new Date(b.expiryDate).getTime()));
         setShowConfirmationModal(false);
         setScannedItems([]);
     };
@@ -174,7 +174,7 @@ const App: React.FC = () => {
                                 disabled={isLoading || inventory.length === 0}
                                 className="w-full flex items-center justify-center bg-green-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-green-300"
                             >
-                             <SparklesIcon className="h-6 w-6 mr-2" />
+                                <SparklesIcon className="h-6 w-6 mr-2" />
                                 {isLoading ? 'Thinking...' : 'Suggest Recipes'}
                             </button>
                         </div>
